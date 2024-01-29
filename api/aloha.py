@@ -1,5 +1,6 @@
 from http.server import BaseHTTPRequestHandler
 from urllib import parse
+import platform
  
 class handler(BaseHTTPRequestHandler):
  
@@ -19,6 +20,9 @@ class handler(BaseHTTPRequestHandler):
             message = f"Aloha {name}"
         else:
             message = "Aloha stranger"
+
+        message += f"\nGreetings from Python version {platform.python_version()}"
+        
 
         self.send_response(200)
         self.send_header('Content-type','text/plain')
